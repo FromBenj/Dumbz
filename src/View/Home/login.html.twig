@@ -1,0 +1,81 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login">
+        S'identifier
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="loginTitle">Bienvenue chez Dumbz</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="emailLogin">E-mail</label>
+                            <input type="email" class="form-control" id="emailLogin" aria-describedby="emailHelp" placeholder="Entrez votre email">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordLogin">Mot de passe</label>
+                            <input type="password" class="form-control" id="passwordLogin" placeholder="Entrez votre mot passe">
+                            <small class="form-text text-muted">Votre mot de passe est protégé par nos soins</small>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <button type="button" class="btn" data-toggle="modal" data-target="#registration" id="buttonRegistration" data-dismiss="modal"> Pas encore inscrit ? Clique ici ! </button>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary">Se connecter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="registrationTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="registrationTitle">Inscription</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="emailRegistration">E-mail</label>
+                        <input type="email" class="form-control" id="emailRegistration" aria-describedby="emailHelp" placeholder="Entrez votre email">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordRegistration">Mot de passe</label>
+                        <input type="password" class="form-control" id="passwordRegistration" placeholder="Entrez votre mot passe">
+                        <small class="form-text text-muted">Votre mot de passe est protégé par nos soins</small>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeRegistration">Fermer</button>
+                <button type="button" class="btn btn-primary">S'inscrire</button>
+            </div>
+
+
+            <script>
+                    var buttonSub = document.getElementById('buttonRegistration');
+                    var loginPage = document.getElementById('login');
+                    buttonSub.addEventListener("click", function() {
+                        loginPage.style.display = 'none';
+                    });
+            </script>
+{% endblock %}
