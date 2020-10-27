@@ -11,30 +11,30 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="loginTitle">Bienvenue chez Dumbz</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
+                    <h4 class="modal-title" id="loginTitle">Bienvenue chez Dumbz</h4>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
                             <label for="emailLogin">E-mail</label>
-                            <input type="email" class="form-control" id="emailLogin" aria-describedby="emailHelp" placeholder="Entrez votre email">
+                            <input type="email" class="form-control" id="emailLogin" aria-describedby="emailHelp" placeholder="Entres ton email">
 
                         </div>
                         <div class="form-group">
                             <label for="passwordLogin">Mot de passe</label>
-                            <input type="password" class="form-control" id="passwordLogin" placeholder="Entrez votre mot passe">
-                            <small class="form-text text-muted">Votre mot de passe est protégé par nos soins</small>
+                            <input type="password" class="form-control" id="passwordLogin" placeholder="Entres ton mot passe">
+                            <small class="form-text text-muted">Ton mot de passe est protégé par nos soins</small>
                         </div>
                     </form>
                 </div>
                 <div>
-                    <button type="button" class="btn" data-toggle="modal" data-target="#registration" id="buttonRegistration" data-dismiss="modal"> Pas encore inscrit ? Clique ici ! </button>
                 </div>
 
                 <div class="modal-footer">
+                    <button type="button" class="btn" data-toggle="modal" data-target="#registration" id="buttonRegistration" data-dismiss="modal"> Pas encore inscrit ? Cliques ici ! </button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                     <button type="button" class="btn btn-primary">Se connecter</button>
                 </div>
@@ -46,22 +46,31 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="registrationTitle">Inscription</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+                <h4 class="modal-title" id="registrationTitle">Inscription</h4>
             </div>
             <div class="modal-body">
                 <form>
                     <div class="form-group">
+                        <label for="nameRegistration">Ton nom</label>
+                        <input type="text" class="form-control" id="nameRegistration" placeholder="Tu n'as qu'une seule chance, fais attention">
+
+                    </div>
+                    <div class="form-group">
                         <label for="emailRegistration">E-mail</label>
-                        <input type="email" class="form-control" id="emailRegistration" aria-describedby="emailHelp" placeholder="Entrez votre email">
+                        <input type="email" class="form-control" id="emailRegistration" aria-describedby="emailHelp" placeholder="Entres ton email">
 
                     </div>
                     <div class="form-group">
                         <label for="passwordRegistration">Mot de passe</label>
-                        <input type="password" class="form-control" id="passwordRegistration" placeholder="Entrez votre mot passe">
-                        <small class="form-text text-muted">Votre mot de passe est protégé par nos soins</small>
+                        <input type="password" class="form-control" id="passwordRegistration" placeholder="Entres ton mot passe">
+                        <small class="form-text text-muted">Une lettre capitale, 42 chiffres, 126 caractères spéciaux et une danse du ventre minimum.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordRegistrationVerification">Confirmes ton mot de passe</label>
+                        <input type="password" class="form-control" id="passwordRegistrationVerification">
                     </div>
                 </form>
             </div>
@@ -69,13 +78,4 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeRegistration">Fermer</button>
                 <button type="button" class="btn btn-primary">S'inscrire</button>
             </div>
-
-
-            <script>
-                    var buttonSub = document.getElementById('buttonRegistration');
-                    var loginPage = document.getElementById('login');
-                    buttonSub.addEventListener("click", function() {
-                        loginPage.style.display = 'none';
-                    });
-            </script>
 {% endblock %}
