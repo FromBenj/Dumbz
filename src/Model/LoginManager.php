@@ -19,7 +19,4 @@ class LoginManager extends AbstractManager
     {
         parent::__construct(self::TABLE);
     }
-
-
-
 }
