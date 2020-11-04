@@ -1,0 +1,104 @@
+<header class="header">
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <div class="col-sm-2 offset-sm-10">
+                <div class="d-flex flex-row-reverse">
+                    <div class="nav-icons">
+                        <div class="btn">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                    <div class="nav-icons">
+                        <div class="btn" data-toggle="modal" data-target="#login">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="loginTitle">Bienvenue chez Dumbz</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="/login/add" method="POST">
+                                            <div class="form-group">
+                                                <label for="emailLogin">E-mail</label>
+                                                <input type="email" class="form-control" id="emailLogin" aria-describedby="emailHelp" placeholder="Entres ton email">
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="passwordLogin">Mot de passe</label>
+                                                <input type="password" class="form-control" id="passwordLogin" placeholder="Entres ton mot passe">
+                                                <small class="form-text text-muted">Ton mot de passe est protégé par nos soins</small>
+                                            </div>
+
+                                    </div>
+                                    <div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn" data-toggle="modal" data-target="#registration" id="buttonRegistration" data-dismiss="modal"> Pas encore inscrit ? Cliques ici ! </button>
+                                        <button type="submit" class="btn btn-primary">Se connecter</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="registrationTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="registrationTitle">Inscription</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="nameRegistration">Ton nom</label>
+                                                <input type="text" class="form-control" id="nameRegistration" placeholder="Tu n'as qu'une seule chance, fais attention">
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="emailRegistration">E-mail</label>
+                                                <input type="email" class="form-control" id="emailRegistration" aria-describedby="emailHelp" placeholder="Entres ton email">
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="passwordRegistration">Mot de passe</label>
+                                                <input type="password" class="form-control" id="passwordRegistration" placeholder="Entres ton mot passe">
+                                                <small class="form-text text-muted">Une lettre capitale, 42 chiffres, 126 caractères spéciaux et une danse du ventre minimum.</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="passwordRegistrationVerification">Confirmes ton mot de passe</label>
+                                                <input type="password" class="form-control" id="passwordRegistrationVerification">
+                                            </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary">S'inscrire</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeRegistration">Fermer</button>
+
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-icons">
+                        <div class="btn">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
