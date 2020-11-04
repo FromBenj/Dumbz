@@ -1,70 +1,70 @@
 {% block postContent %}
 
     <div class="row d-flex justify-content-between m-3">
-{% for language in tableToUse|slice(0,6) %}
+        {% for one_post in tableToUse|slice(0,6) %}
 
-    <div data-toggle="modal" data-target="#exampleModal{{ language.id }}">
-        <div class="card border border-dark rounded m-1"  style="width: 18rem;">
-            <div class="card-body">
-                <div class="container card-header border border-dark rounded ">
-                    <div class="row d-flex justify-content-between">{{ language.title }}
-                        <div class="text-warning"><i class="far fa-star"></i></div>
-                    </div>
-                </div>
-
-            {# <i class="far fa-star"></i> #}
-
-                <div class="card-text border border-dark rounded text-white bg-dark">
-        {{ language.content|length > 50 ? language.content|slice(0, 51)|split(' ')|slice(0, -1)|join(' ') ~ '…' : language.content }}
-                </div>
-
-                <div class="container m-3 7 ">
-                    <div class="row d-flex justify-content-between">
-                        <div class="border rounded-circle p-1 bg-info"><i class="{{ language.icon }}"></i></div>
-                        <div><i class="fas fa-angle-down text-danger"></i><i class="fas fa-angle-up text-success"></i><span class="badge badge-warning">{{ language.popularity }}</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-footer text-muted">
-                Date de creation : {{ language.creation_at }}
-            </div>
-        </div>
-    </div>
-
-
-    <div class="modal fade" id="exampleModal{{ language.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                     <div class="card-body">
-                         <div class="container card-header border border-dark rounded "> <div class="row d-flex justify-content-between">{{ language.title }} <div class="text-warning"><i class="far fa-star"></i></div></div></div>
-                         <div class="card-text border border-dark rounded text-white bg-dark">
-                            {{ language.content }}
-                         </div>
-                         <div class="container m-3 7 ">
-                            <div class="row d-flex justify-content-between">
-                                <div class="border rounded-circle p-1 bg-info"><i class="{{ language.icon }}"></i></div>
-                                <div ><i class="fas fa-angle-down text-danger"></i><i class="fas fa-angle-up text-success"></i><span class="badge badge-warning">{{ language.popularity }}</span></div>
+            <div data-toggle="modal" data-target="#exampleModal{{ one_post.post_unique_id }}">
+                <div class="card border border-dark rounded m-1"  style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="container card-header border border-dark rounded ">
+                            <div class="row d-flex justify-content-between">{{ one_post.title }}
+                                <div class="text-warning"><i class="far fa-star"></i></div>
                             </div>
-                         </div>
-                         <div class="text-info d-flex justify-content-end"><i class="far fa-comment"></i></div>
-                         <div><textarea name="" id="" cols="23" rows="3"></textarea></div>
-                         <button type="button" class="btn btn-info">Comment</button>
-                     </div>
+                        </div>
+
+                        {# <i class="far fa-star"></i> #}
+
+                        <div class="card-text border border-dark rounded text-white bg-dark">
+                            {{ one_post.content|length > 50 ? one_post.content|slice(0, 51)|split(' ')|slice(0, -1)|join(' ') ~ '…' : one_post.content }}
+                        </div>
+
+                        <div class="container m-3 7 ">
+                            <div class="row d-flex justify-content-between">
+                                <div class="border rounded-circle p-1 bg-info"><i class="{{ one_post.icon }}"></i></div>
+                                <div><i class="fas fa-angle-down text-danger"></i><i class="fas fa-angle-up text-success"></i><span class="badge badge-warning">{{ one_post.popularity }}</span></div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-footer text-muted">
-                        Date de creation : {{ language.creation_at }}
+                        Date de creation : {{ one_post.creation_at }}
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-
+                </div>
             </div>
-        </div>
-    </div>
 
-{% endfor %}
- <!-- end of card container -->
-  </div>
+
+            <div class="modal fade" id="exampleModal{{ one_post.post_unique_id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="card-body">
+                            <div class="container card-header border border-dark rounded "> <div class="row d-flex justify-content-between">{{ one_post.title }} <div class="text-warning"><i class="far fa-star"></i></div></div></div>
+                            <div class="card-text border border-dark rounded text-white bg-dark">
+                                {{ one_post.content }}
+                            </div>
+                            <div class="container m-3 7 ">
+                                <div class="row d-flex justify-content-between">
+                                    <div class="border rounded-circle p-1 bg-info"><i class="{{ one_post.icon }}"></i></div>
+                                    <div ><i class="fas fa-angle-down text-danger"></i><i class="fas fa-angle-up text-success"></i><span class="badge badge-warning">{{ one_post.popularity }}</span></div>
+                                </div>
+                            </div>
+                            <div class="text-info d-flex justify-content-end"><i class="far fa-comment"></i></div>
+                            <div><textarea name="" id="" cols="23" rows="3"></textarea></div>
+                            <button type="button" class="btn btn-info">Comment</button>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Date de creation : {{ one_post.creation_at }}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+        <!-- end of card container -->
+    </div>
 
 
 {% endblock %}

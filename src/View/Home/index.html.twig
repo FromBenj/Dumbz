@@ -4,14 +4,16 @@
 
 {% include 'Item/_nav.html.twig' %}
 
+    {{ dump(search) }}
 
 <div class="container-fluid">
     <div class="row research-block">
         <div class="col-sm-6 offset-3">
-            <form action="" method="get">
+            <form action="" method="post">
                 <label for="cheat-search"></label>
-                <input type="search" id="cheat-search" name="cheat-search" placeholder="-">
+                <input type="search" id="cheat-search" name="search" placeholder="-">
              </form>
+            {{ dump() }}
         </div>
             <button class="btn"><i class="fas fa-search"></i></button>
     </div>

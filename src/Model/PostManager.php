@@ -11,31 +11,34 @@ class PostManager extends AbstractManager
     /**
      *  Initializes this class.
      */
-    public function __construct()
+    public function construct()
     {
-        parent::__construct(self::TABLE);
+        parent::construct(self::TABLE);
     }
 
-    public function combinedSelectAll(): array
+    public function selectAllWithLanguage(): array
     {
-        return $this->pdo->query('SELECT *, (post.like - post. dislike) as popularity FROM ' . $this->table . ' LEFT JOIN language ON post.language_identifier = language.identifier;')->fetchAll();
+        return $this->pdo->query('SELECT *, post.id as post_unique_id, (post.like - post. dislike) as popularity FROM ' . $this->table . ' LEFT JOIN language ON post.language_id = language.id;')->fetchAll();
     }
 
-    public function selectAllByDate(): array
+    public function selectPostsOrderedBy($orderedBy): array
     {
-        return $this->pdo->query('SELECT *, (post.like - post. dislike) as popularity FROM ' . $this->table . ' LEFT JOIN language ON post.language_identifier = language.identifier ORDER BY creation_at DESC;')->fetchAll();
+        return $this->pdo->query('SELECT *, post.id as post_unique_id, (post.like - post. dislike) as popularity FROM ' . $this->table . ' LEFT JOIN language ON post.language_id = language.id ORDER BY ' . $orderedBy . ' DESC;')->fetchAll();
     }
 
-    public function selectAllByPopularity(): array
+    public function postByLanguage($id): array
     {
-        return $this->pdo->query('SELECT *, (post.like - post. dislike) as popularity FROM ' . $this->table . ' LEFT JOIN language ON post.language_identifier = language.identifier ORDER BY popularity DESC;')->fetchAll();
+        return $this->pdo->query('SELECT *, post.id as post_unique_id,(post.like - post. dislike) as popularity FROM ' . $this->table . ' LEFT JOIN language ON post.language_id = language.id WHERE language.id=' . $id . ';')->fetchAll();
     }
-
-    public function postByLanguage($identifier): array
+    public function postByKeyword($keyword): array
     {
-        return $this->pdo->query('SELECT *, (post.like - post. dislike) as popularity FROM ' . $this->table . ' LEFT JOIN language ON post.language_identifier = language.identifier WHERE language.identifier=' . $identifier . ';')->fetchAll();
+        $statement= $this->pdo->prepare('SELECT * FROM ' . self::TABLE . ' WHERE title = :keyword;');
+        $statement->bindValue(':keyword', $keyword, \PDO::PARAM_STR);
+        $statement->execute();
+        return $statement->fetchAll();
+
     }
-
-
 
 }
+
+
