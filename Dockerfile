@@ -52,11 +52,11 @@ RUN docker-php-ext-install -j$(nproc) intl
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+RUN composer self-update --1
+
 # Copy composer.lock and composer.json
 #COPY ./composer.lock ./composer.json /var/www/
 RUN if [ ${APP_ENV} = "prod" ] ; then composer install --no-dev --no-interaction -o ; else composer install --no-interaction -o ; fi
-
-RUN composer self-update --1
 
 RUN ls /var/www/
 
