@@ -56,6 +56,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 #COPY ./composer.lock ./composer.json /var/www/
 RUN if [ ${APP_ENV} = "prod" ] ; then composer install --no-dev --no-interaction -o ; else composer install --no-interaction -o ; fi
 
+RUN composer self-update --1
+
 RUN ls /var/www/
 
 # Copy server configuration files
