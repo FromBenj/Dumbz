@@ -77,13 +77,17 @@
                                             <div class="d-inline-block pr-2">
                                                 <div>
                                                     <i class="far fa-thumbs-up fa-2x text-success {{  likesAndDislikes[postid][0] == 1 ? 'fas' : '' }}"
+
+ 
                                                        data-postid="{{ one_post.post_unique_id }}" data-userid="{{ session.userid }}">
                                                     </i>
                                                 </div>
                                             </div>
                                             <div class="d-inline-block">
+
                                                 <div>
                                                     <i class="far fa-thumbs-down fa-2x text-danger {{  likesAndDislikes[postid][1] == 1 ? 'fas' : '' }}"
+
                                                        data-postid="{{ one_post.post_unique_id }}" data-userid="{{ session.userid }}">
                                                     </i>
                                                 </div>

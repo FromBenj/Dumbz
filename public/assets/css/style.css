@@ -470,6 +470,7 @@ body {
 
 }
 
+
 #sendLogin {
     text-align: center;
 }
@@ -486,7 +487,6 @@ body {
 .btn-add {
     background-color: var(--button-inside-modal);
 }
-
 
 .btn-add-inside-modal {
     background-color: var(--button-add-color);
