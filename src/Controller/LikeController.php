@@ -17,7 +17,6 @@ class LikeController extends AbstractController
         $userId = $jsonData['userid'];
         $postManager = new PostManager();
         $postManager->changeLike($postId, $userId);
-        $postManager->updateNbOfLikes($postId, $userId);
         $response = [
             'status' => 'success',
             'user' => $userId,
@@ -33,7 +32,6 @@ class LikeController extends AbstractController
         $postId = $jsonData['cheatsheet'];
         $userId = $jsonData['userid'];
         $postManager = new PostManager();
-        $postManager->updateNbOfDislikes($postId, $userId);
         $postManager->changeDislike($postId, $userId);
         $response = [
             'status' =>'success',

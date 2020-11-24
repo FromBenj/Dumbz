@@ -55,7 +55,7 @@ for (let i = 0 ; i <like.length; i++) {
         } else {
             event.target.classList.add('fas');
             number++;
-            popularity[i].innerHTML = number.toString();
+            popularity[i].innerHTML === "" ? popularity[i].innerHTML = 1 : popularity[i].innerHTML = number.toString();
         }
 
         if (dislike[i].classList.contains('fas')) {
@@ -79,6 +79,7 @@ for (let i = 0 ; i <like.length; i++) {
         .then(response => response.json())
         .then(data => console.log(data))
     })
+    console.log(like.length);
 }
 
 
@@ -93,7 +94,7 @@ for ( let i = 0; i < dislike.length; i++ ) {
         } else {
             event.target.classList.add('fas');
             number--;
-            popularity[i].innerHTML = number.toString();
+            popularity[i].innerHTML === "" ? popularity[i].innerHTML = -1 : popularity[i].innerHTML = number.toString();
         }
         if (like[i].classList.contains('fas')) {
             like[i].classList.remove('fas');

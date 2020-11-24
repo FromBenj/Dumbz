@@ -54,13 +54,19 @@ class MySpaceController extends AbstractController
 
         $this->twig->addGlobal('session', $_SESSION);
 
+        $colors = ['#EE908A','#EEAE8A', '#EEDC8A', '#B5E1EE', '#D7B0EE' ];
+        $allPopularities = $postManager->popularityPerId();
+
+
         return $this->twig->render('MySpace/myspacepage.html.twig', [
             'favorite' => $favorites,
             'languages' => $languageManager,
             'favorites' => $allMyFavorites,
             'myposts' => $allMyPosts,
             'user' => $theUser,
-            'likesAndDislikes' => $likesAndDislikes
+            'likesAndDislikes' => $likesAndDislikes,
+            'all_popularities' => $allPopularities,
+            'colors' => $colors
         ]);
     }
 

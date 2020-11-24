@@ -1,6 +1,5 @@
 {% block postContent %}
     <div class="row d-flex justify-content-between m-3">
-
         {% set fav_array = [] %}
         {% for fav in favorite %}
             {% set fav_array = fav_array|merge( [fav.id] ) %}
@@ -19,12 +18,12 @@
             {% if one_post.post_id in fav_array %}
                 {% set startype = "fas fa-star"%}
             {% endif %}
-            {# for mayspace table #}
-
+            {# for myspace table #}
+            {% set random = random(colors) %}
             <div>
-                <div class="card m-1 post-index" style="width: 18rem;" data-toggle="modal" data-target="#exampleModal{{ one_post.post_unique_id }}">
+                <div class="card m-1 post-index" style="width: 18rem; background-color: {{ random }}" data-toggle="modal" data-target="#exampleModal{{ one_post.post_unique_id }}">
                     <div class="card-body">
-                        <div class="container card-header ">
+                        <div class="container card-header" style="background-color: {{ random }}">
                             <div class="row d-flex ">{{ one_post.title }}
                             </div>
                         </div>
@@ -32,10 +31,10 @@
                           {{ one_post.content|raw }}
                         </div>
                         <div class="container m-3 7 ">
-                            <div class="row d-flex justify-content-between">
-                                <div class="border rounded-circle p-2"><i class="{{ one_post.icon }}"></i></div>
+                            <div class="row d-flex justify-content-between align-items-center">
+                                <div class="icons-post icon-language"><i class="{{ one_post.icon }} fa-2x"></i></div>
                                 {% set postid = one_post.post_unique_id %}
-                                <div class="popularity badge badge-warning">{{ one_post.popularity }}</div>
+                                <div class="popularity badge badge-warning">{{ all_popularities [postid] }}</div>
                             </div>
                         </div>
                     </div>
@@ -50,33 +49,43 @@
                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content card">
-                        <div class="card-body">
-                            <div class="container card-header rounded ">
+                        <div class="card-body" style="background-color: {{ random }}">
+                            <div class="container card-header rounded " style="background-color: {{ random }}">
                                 <div class="row d-flex">{{ one_post.title }}
                                     {%  if session.userid %}
                                     <div class="text-warning"><i class="{{ startype }}" data-postid="{{ one_post.post_unique_id }}" data-userid="{{ session.userid}}"></i></div>
                                     {% endif %}
                                 </div>
                             </div>
-                            <div class="container card-header">
+                            <div class="container card-header ">
                                 {{ one_post.content|raw }}
                             </div>
-                            <div class="container m-3 7 ">
-                                <div class="row d-flex justify-content-between">
-                                    <div class="border rounded-circle p-2"><i class="{{ one_post.icon }}"></i></div>
-                                    {%  if session.userid %}
-                                        <div>
-                                            <i class="far fa-thumbs-up text-success {{  likesAndDislikes[postid][0] == 1 ? 'fas' : '' }}"
-                                               data-postid="{{ one_post.post_unique_id }}" data-userid="{{ session.userid }}">
-                                            </i>
+                            <div class="container m-0 7 ">
+                                <div class="row d-flex align-items-center justify-content-between">
+                                    <div class="justify-content-start">
+                                        <div class="icons-post icon-language col-8">
+                                            <i class="{{ one_post.icon }} fa-2x"></i>
                                         </div>
-                                        <div>
-                                            <i class="far fa-thumbs-down text-danger {{  likesAndDislikes[postid][1] == 1 ? 'fas' : '' }}"
-                                               data-postid="{{ one_post.post_unique_id }}" data-userid="{{ session.userid }}">
-                                            </i>
-                                        </div>
-                                    {% endif %}
-                                    <div class="badge badge-warning popularity">{{ one_post.popularity }}</div>
+                                    </div>
+                                    <div class="justify-content-end">
+                                        {%  if session.userid %}
+                                            <div class="d-inline-block">
+                                                <div class="icons-post icon-like">
+                                                    <i class="far fa-thumbs-up text-success {{  likesAndDislikes[postid][0] == 1 ? 'fas' : '' }}"
+                                                       data-postid="{{ one_post.post_unique_id }}" data-userid="{{ session.userid }}">
+                                                    </i>
+                                                </div>
+                                            </div>
+                                            <div class="d-inline-block">
+                                                <div class="icons-post icon-dislike">
+                                                    <i class="far fa-thumbs-down text-danger {{  likesAndDislikes[postid][1] == 1 ? 'fas' : '' }}"
+                                                       data-postid="{{ one_post.post_unique_id }}" data-userid="{{ session.userid }}">
+                                                    </i>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    <!-- <div class="badge badge-warning popularity">{{ all_popularities.postid }}</div> -->
                                 </div>
                             </div>
                             {%  if session.userid %}
@@ -93,17 +102,16 @@
                                         <i class="fa fa-comment" aria-hidden="true"></i>
                                            Commentaires
                                     </a>
-                                </li>
                                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
                                      data-parent="#accordionExample">
                                     <div class="card-body language-main-list">
                                         <ul class="ul-comment">
 
-                                            {% for comment in all_comments %}
+                                            {% for comment in all_comments%}
                                                 {% if comment.post_id == one_post.post_unique_id %}
 
                                                     <li class="li-comment">
-                                                        Créé par  {{ comment.username }} le {{comment.creation_at|date("d/m/Y")}} :</br> <p>{{comment.content}}</p></br>
+                                                        <i> Créé par  {{ comment.username }} le {{comment.creation_at|date("d/m/Y")}} :</i></br> <p class="bubble">{{comment.content}}</p></br>
                                                     </li>
                                                 {% endif %}
                                             {% endfor %}
@@ -112,7 +120,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer text-muted">
+                        <div class="card-footer text-muted" style="background-color: {{ random }}">
                             Date de creation : {{ one_post.creation_at|date ("d/m/Y")}}
                             {%  if session.user["admin"] %}
                             <a href="/home/deletepost/{{ one_post.post_unique_id }}"><i class="fa fa-trash" aria-hidden="true"></i> </a>
@@ -120,6 +128,7 @@
                             <a href="/home/deleteUserPost/{{ one_post.post_unique_id }}"><i class="fa fa-trash" aria-hidden="true"></i> </a>
                             {% endif %}
                         </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                         </div>
