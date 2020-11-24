@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col text-center">
-            <button type="button" class="btn btn-primary h-100 w-50" data-toggle="modal" data-target="#newLanguage">
+            <button type="button" class="btn btn-add" data-toggle="modal" data-target="#newLanguage">
                 Ajouter un langage
             </button>
         </div>
@@ -24,23 +24,20 @@
                                placeholder="Nom du langage" required>
                     </div>
                     <div class="form-group mw-100">
-                        <label for="newLanguageIdentifier">Identifier</label>
+                        <label for="newLanguageIdentifier">Identifieur</label>
                         <input type="text" class="form-control" id="newLanguageIdentifier" name="newLanguageIdentifier"
-                               placeholder="Identifier" required>
+                               placeholder="Identifieur" required>
                     </div>
                     <div class="form-group mw-100">
                         <label for="newLanguageIcon">Icone</label>
                         <input type="text" class="form-control" id="newLanguageIcon" name="newLanguageIcon"
                                placeholder="Exemple de format: 'fab fa-css3'">
                     </div>
-                    <div class="form-group my-4 mw-100">
+                    <div class="form-group">
                         <label for="newLanguageSumbit"></label>
-                        <button type="submit" id="newLanguageSumbit" class="btn btn-primary">Ajouter</button>
+                        <button type="submit" id="newLanguageSumbit" class="btn btn-add-inside-modal">Ajouter</button>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary mw-100" data-dismiss="modal">Fermer</button>
             </div>
         </div>
     </div>

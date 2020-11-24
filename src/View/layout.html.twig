@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="fr">
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/images/favicon.png">
     <link rel="stylesheet" href="/assets/css/style.css">
     {% block stylesheet %}{% endblock %}
 </head>
@@ -11,16 +13,10 @@
 {% block header %}{% include 'Home/_header.html.twig' %}{% endblock %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-1">
-            {% include 'Home/_nav.html.twig' %}
-        </div>
-        <div class="col-sm-1">
-        </div>
-        <div class="col-sm-9">
+        <div class="col-sm-8 offset-2">
             {% block content %}{% endblock %}
         </div>
-        <div class="col-sm-1">
-        </div>
+
     </div>
 </div>
 {% include 'Home/_footer.html.twig' %}

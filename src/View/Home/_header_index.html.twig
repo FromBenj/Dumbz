@@ -1,11 +1,88 @@
 <header class="header-index">
     <div class="container-fluid">
-        <div class="row no-gutters">
-            <div class="col-sm-2 offset-sm-10">
-                <div class="d-flex flex-row-reverse">
+        <div class="row">
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-burger" data-toggle="modal" data-target="#myModal">
+                    &#9776;
+                </button>
+            </div>
+            <!-- start navbar modal -->
+            <div class="modal left" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">Menu</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+
+                        <div class="modal-body modal-nav">
+                            <nav id="" class="display-block-nav">
+
+                                <div class="sidebar-sticky">
+                                    <ul class="nav flex-column">
+                                        <div class="accordion accordion-nav" id="accordionExample">
+                                            <li class="nav-item text-nav-langage">
+                                                <i class="fa fa-globe" aria-hidden="true"></i>
+                                                Langages
+                                                </a>
+                                            </li>
+
+                                            <ul>
+                                                <a href="/"> <li> Tous les langages </li></a>
+                                                {% for language in languages|slice(0, 5) %}
+
+                                                    <a href="/language/language/{{ language.id }}">
+                                                        <li>{{ language.name }}</li>
+                                                    </a>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                        <div class="accordion accordion-nav" id="accordionExample">
+                                            <li class="nav-item text-nav">
+                                                <a class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                                   data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" href="#">
+                                                    <i class="fa fa-book" aria-hidden="true"></i>
+                                                    Autres langages
+                                                </a>
+                                            </li>
+                                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                                 data-parent="#accordionExample">
+                                                <div class="card-body language-main-list">
+                                                    <ul>
+                                                        {% for language in languages|slice(5, 10000) %}
+                                                            <a href="/language/language/{{ language.id }}">
+                                                                <li>{{ language.name }}</li>
+                                                            </a>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <li class="nav-item text-nav">
+                                            <a class="nav-link" data-toggle="modal" data-target="#registration">
+                                                <i class="fa fa-sign-in" aria-hidden="true"></i>
+                                                Inscrivez vous
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end navbar modal -->
+            <div class="col-sm-2">
+            <a href="/">
+                <div class="animated-logo"></div>
+            </a>
+            </div>
+            <div class="col-sm-8 header-icons">
+                <div class="d-flex">
                     <div class="nav-icons">
                         <div class="btn">
-                            <i class="fas fa-globe"></i>
+                            <a href="/" class="home-icon"> <i class="fas fa-home"></i></a>
                         </div>
                     </div>
                     <div class="nav-icons">
@@ -42,33 +119,24 @@
                             </div>
                         {% endif %}
                     </div>
-                    <div class="nav-icons">
-                        <div class="btn">
-                            <a href="/" class="home-icon"> <i class="fas fa-home"></i></a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-2 offset-2 ">
-        <a href="/">
-            <div class="animated-logo"></div>
-        </a>
-    </div>
-    <div class="container-fluid">
+    <div class="container-fluid research-container">
         <div class="row research-block">
-            <div class="col-sm-6 offset-3">
-                <form action="/" method="post" class="loupeandbarre">
-                    <label for="cheat-search"></label>
-                    <input type="search" class="search-bar" id="cheat-search" name="cheat-search" placeholder="Entrez votre recherche">
-                    <button class="btn button-loupe"><i class="fas fa-search"></i></button>
-                </form>
+            <div class="col-8 offset-2 col-md-6 offset-md-3">
+                <div>
+                    <form action="/" method="post" class="loupeandbarre">
+                        <label for="cheat-search"></label>
+                        <input type="search" class="search-bar" id="cheat-search" name="cheat-search" placeholder="Entrez votre recherche">
+                        <button class="btn button-loupe"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
                 {% if search_without_result %}
                     Aucun résultat ne correspond à votre recherche, veuillez réessayez un autre mot clé.
                 {% endif %}
             </div>
         </div>
     </div>
-    <hr>
 </header>

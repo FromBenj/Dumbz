@@ -5,7 +5,7 @@
             {% set fav_array = fav_array|merge( [fav.id] ) %}
         {% endfor %}
 
-        {% for one_post in tableToUse|slice(0,6) %}
+        {% for one_post in tableToUse|slice(6,6) %}
 
             {# for index tables #}
             {% if one_post.post_unique_id in fav_array %}
@@ -26,7 +26,7 @@
                             <div class="row d-flex ">{{ one_post.title }}
                             </div>
                         </div>
-                        <div class="card-text post-content-short ">
+                        <div class="card-text post-content-short">
                           {{ one_post.content|raw }}
                         </div>
                         <div class="container m-3 7 ">
@@ -52,7 +52,7 @@
                             <div class="container pr-0 pl-0 card-header rounded " style="background-color: {{ random }}">
                                 <div class="row d-flex">
                                     {%  if session.userid %}
-                                        <div class="text-warning col-2 text-left"><i class="{{ startype }} fa-2x" data-postid="{{ one_post.post_unique_id }}" data-userid="{{ session.userid}}"></i></div>
+                                        <div class="text-warning col-2 text-left"><i class="{{ startype }}" data-postid="{{ one_post.post_unique_id }}" data-userid="{{ session.userid}}"></i></div>
                                     {% endif %}
                                     <div class="col-4 offset-2 text-center">{{ one_post.title }}</div>
                                     <div class="text-warning col-2 offset-2 text-right">
@@ -77,17 +77,13 @@
                                             <div class="d-inline-block pr-2">
                                                 <div>
                                                     <i class="far fa-thumbs-up fa-2x text-success {{  likesAndDislikes[postid][0] == 1 ? 'fas' : '' }}"
-
- 
                                                        data-postid="{{ one_post.post_unique_id }}" data-userid="{{ session.userid }}">
                                                     </i>
                                                 </div>
                                             </div>
                                             <div class="d-inline-block">
-
                                                 <div>
                                                     <i class="far fa-thumbs-down fa-2x text-danger {{  likesAndDislikes[postid][1] == 1 ? 'fas' : '' }}"
-
                                                        data-postid="{{ one_post.post_unique_id }}" data-userid="{{ session.userid }}">
                                                     </i>
                                                 </div>
@@ -131,12 +127,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer text-muted post-footer" style="background-color: {{ random }}">
+                        <div class="card-footer text-muted" style="background-color: {{ random }}">
                             Date de creation : {{ one_post.creation_at|date ("d/m/Y")}}
                             {%  if session.user["admin"] %}
-                            <a href="/home/deletepost/{{ one_post.post_unique_id }}"><i class="fa fa-trash fa-2x delete-button" aria-hidden="true"></i> </a>
+                            <a href="/home/deletepost/{{ one_post.post_unique_id }}"><i class="fa fa-trash" aria-hidden="true"></i> </a>
                             {% elseif session.userid == one_post.user_id %}
-                            <a href="/home/deleteUserPost/{{ one_post.post_unique_id }}"><i class="fa fa-trash fa-2x delete-button" aria-hidden="true"></i> </a>
+                            <a href="/home/deleteUserPost/{{ one_post.post_unique_id }}"><i class="fa fa-trash" aria-hidden="true"></i> </a>
                             {% endif %}
                         </div>
                     </div>

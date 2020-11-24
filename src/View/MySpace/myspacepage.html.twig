@@ -3,20 +3,21 @@
 {% block stylesheet %}
     <link rel="stylesheet" href="/assets/css/stylemypage.css">{% endblock %}
 {% block content %}
-    {% include 'Home/_nav.html.twig' %}
     {% set startype = "fas fa-star" %}
     {% if session.user.id == user.id %}
     <div class="welcome-text text-center font-weight-bold font-italic">
         Bonjour {{ user.name }},<br>heureux de te retrouver !
     </div>
         <hr>
-        {% include '/Home/_addPostForm.html.twig' %}
+        <div class="add-post-container">
+            {% include '/Home/_addPostForm.html.twig' %}
+        </div>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-6 title">
+                <div class="col-6 result-title">
                     Mes favoris
                 </div>
-                <div class="col-sm-1 title">
+                <div class="col-1 result-title">
                     <span class="font-weight-bold" id="plus-my-favoris">+</span>
                 </div>
             </div>
@@ -29,10 +30,10 @@
         </div>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-6 title">
+                <div class="col-6 result-title">
                     Mes fiches
                 </div>
-                <div class="col-sm-1 title">
+                <div class="col-1 result-title">
                     <span class="font-weight-bold" id="font-weight-bold plus-my-posts">+</span>
                 </div>
             </div>

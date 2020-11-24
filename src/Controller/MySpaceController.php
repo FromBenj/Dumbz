@@ -28,8 +28,6 @@ class MySpaceController extends AbstractController
             $languageManager = $languageManager->selectAll();
             $allMyFavorites = new PostManager();
             $allMyFavorites = $allMyFavorites->selectAllMyFavorites($user);
-            $allMyPosts = new PostManager();
-            $allMyPosts = $allMyPosts->selectAllMyPosts($user);
         if (($_SERVER["REQUEST_METHOD"] === "POST")) {
             $thePost = new PostManager();
             $user = $theUser['id'];
@@ -44,9 +42,11 @@ class MySpaceController extends AbstractController
             $likesAndDislikes = $postManager->selectAllLikesAndDislikesPerUser($_SESSION['userid']);
             $favoriteManager = new FavoriteManager();
             $favorites = $favoriteManager->selectAllFavoritePostId($_SESSION['userid']);
+            $allMyPosts = $postManager->selectAllMyPosts($user);
         } else {
             $likesAndDislikes = [];
             $favorites = [];
+            $allMyPosts = [];
         }
 
         $_SESSION['userid'] = $theUser['id'];

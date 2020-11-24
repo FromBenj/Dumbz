@@ -1,6 +1,6 @@
 <footer class="footer container-fluid">
     <div class="container-fluid">
-        <div class="row no-gutters">
+        <div class="row">
             <div class="col-sm text-center">
                 <p class="devs"> Site déveleoppé avec <i class="far fa-heart"></i> par
                     <a href="https://www.linkedin.com/in/benjamin-touboul/" target="_blank" rel="noopener noreferrer">Benjamin</a>,
@@ -13,58 +13,90 @@
                 </p>
             </div>
         </div>
-        <div class="row no-gutters">
-            <div class="col-sm-3 text-center">
-                <span class="footer-bold">Dumbz</span>
+        <div class="row">
+            <div class="col-4 col-sm-3 text-center">
+                <div>
+                    <span class="footer-bold">Dumbz</span>
+                </div>
+                <div>
+                    <span class="footer-bold">&#169; 2020</span>
+                </div>
             </div>
-            <div class="col-sm-3 text-center">
-                <a href="#">
-                    <span>Langues</span>
-                </a>
+            <div class="col-4 col-sm-3 text-center">
+                <div>
+                    <a href="#">
+                        <span>Langues</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <span>Contact</span>
+                    </a>
+                </div>
             </div>
-            <div class="col-sm-3 text-center">
-                <a href="/MySpace/main/{{ session.user.id }}">
-                    <span>Mon compte</span>
-                </a>
+            <div class="col-4 col-sm-3 text-center">
+                <div>
+                    <a href="/MySpace/main/{{ session.user.id }}">
+                        <span>Mon compte</span>
+                    </a>
+                </div>
+                <div >
+                    <a href="#">
+                        <span>À propos</span>
+                    </a>
+                </div>
             </div>
-            <div class="col-sm-3">
-                <div class="row justify-content-sm-center no-gutters no-gutters">
-                    <div>
+            <div class="col-sm-3 large_footer">
+                <div class="row">
+                    <div class="col-6 text-right">
                         <a href="#">
                             <i class="fab fa-github-square"></i>
                         </a>
                     </div>
-                    <div>
+                    <div class="col-6">
                         <a href="#">
                             <i class="fab fa-meetup"></i>
                         </a>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-6 text-right">
+                        <a href="#">
+                            <i class="fab fa-facebook-square"></i>
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#">
+                            <i class="fab fa-instagram-square"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row no-gutters">
-            <div class="col-sm-3 text-center">
-                <span class="footer-bold">&#169; 2020</span>
-            </div>
-            <div class="col-sm-3 text-center">
+    </div>
+    <div class="container small_footer">
+        <div class="row">
+            <div class="col-6 text-center">
                 <a href="#">
-                    <span>À propos</span>
+                    <i class="fab fa-github-square"></i>
                 </a>
             </div>
-            <div class="col-sm-3 text-center">
+            <div class="col-6 text-center">
                 <a href="#">
-                    <span>Contact</span>
+                    <i class="fab fa-meetup"></i>
                 </a>
             </div>
-            <div class="col-sm-3">
-                <div class="row justify-content-sm-center no-gutters">
-                    <a href="#">
-                        <i class="fab fa-facebook-square"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-instagram-square"></i>
-                    </a>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-6 text-center">
+                <a href="#">
+                    <i class="fab fa-facebook-square"></i>
+                </a>
+            </div>
+            <div class="col-6 text-center">
+                <a href="#">
+                    <i class="fab fa-instagram-square"></i>
+                </a>
             </div>
         </div>
     </div>

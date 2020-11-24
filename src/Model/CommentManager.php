@@ -26,7 +26,7 @@ class CommentManager extends AbstractManager
 
     public function showComments() :array
     {
-        $comment = $this->pdo->query("SELECT c.content, c.post_id, c.creation_at, c.user_id, u.name AS username FROM comment c JOIN user u on c.user_id = u.id;");
+        $comment = $this->pdo->query("SELECT c.content, c.post_id, c.creation_at, c.user_id, u.name AS username FROM comment c JOIN user u on c.user_id = u.id ORDER BY c.creation_at DESC;");
         $comment->execute();
         $allComments = $comment->fetchAll();
         return $allComments;

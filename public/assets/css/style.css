@@ -1,3 +1,4 @@
+/*Online CSS*/
 @import url("https://use.fontawesome.com/releases/v5.15.1/css/all.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("https://unpkg.com/@coreui/icons/css/all.min.css");
@@ -6,27 +7,38 @@
 @import url("//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/default.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
-@import "stylenav.css";
+/* Font families */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+/*Local CSS*/
+@import "stylemodalnav.css";
 @import "stylemypage.css";
 @import "bootstrap-overridden.css";
-@import "../images/favicon.png";
 
 /* Variable */
 :root {
     --primary-color: #141b15;
     --secondary-color: lightslategrey;
     --link-color: white;
-    --logo-image-1: url('/assets/images/logo1.svg');
-    --logo-image-2: url('/assets/images/logo2.svg');
-    --logo-image-3: url('/assets/images/logo3.svg');
-    --logo-image-4: url('/assets/images/logo4.svg');
-    --logo-image-5: url('/assets/images/logo5.svg');
-    --logo-image-6: url('/assets/images/logo6.svg');
+    --logo-image-1: url('/assets/images/logosBen/logo1.svg');
+    --logo-image-2: url('/assets/images/logosBen/logo2.svg');
+    --logo-image-3: url('/assets/images/logosBen/logo3.svg');
+    --logo-image-4: url('/assets/images/logosBen/logo4.svg');
+    --logo-image-5: url('/assets/images/logosBen/logo5.svg');
+    --logo-image-6: url('/assets/images/logosBen/logo6.svg');
+    --body-color: #FDFFF3;
+    --button-add-color: #EEAE8A;
+    --button-inside-modal: #B5E1EE;
 
 }
 
 body {
-    background-color: #FDFFF3;
+    background-color: var(--body-color);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.post-style {
+    font-family: 'Caveat', cursive;
 }
 
 /* Header */
@@ -41,7 +53,7 @@ body {
 .header {
     background-image: url('/assets/images/main-picture.png');
     background-size: cover;
-    height: 10vh;
+    height: 25vh;
     padding: 20px 0;
 }
 
@@ -50,8 +62,20 @@ body {
 }
 
 .header-icons {
-    margin-right: 15px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 80px;
 
+}
+.btn-burger {
+    font-size: 40px;
+    margin-left: 12px;
+}
+.btn-burger:hover {
+    color: black;
+}
+.btn-post:hover {
+    color: black;
 }
 
 /* Main page content */
@@ -68,9 +92,6 @@ body {
 }
 
 #cheat-search {
-    /* border-top: none; */
-    /* border-right: none; */
-    /*  border-left: none; */
     width: 100%;
 }
 
@@ -78,6 +99,20 @@ body {
     border-bottom: solid 2px black;
     margin: 30px 0;
     width: 100%;
+}
+
+.result-title-button{
+    padding-left: 0px;
+    margin: 30px 0;
+    width: 100%;
+    border-bottom: none;
+}
+
+
+.btn-recent {
+    border-color: lightslategrey;
+    background-color: transparent;
+
 }
 
 /* footer */
@@ -132,14 +167,13 @@ footer a:hover {
     height: 50px;
     width:170px;
     position: absolute;
-    top:-40px;
-    right: 100px;
     animation-name: logo;
     animation-duration: 10s;
     animation-iteration-count: infinite;
     background-color: white;
-    border: 1px solid white;
-    border-radius: 25px;
+    /*border: 1px solid white;*/
+    /*border-radius: 25px;*/
+    border-radius: 15px;
 }
 
 @keyframes logo {
@@ -225,11 +259,23 @@ footer a:hover {
     overflow: hidden;
 }
 .search-bar {
-    margin: 80px 2px 44px 100px;
     height: 3rem;
     border-radius: 30px;
     padding-left: 20px;
 }
+
+.research-container {
+    margin: 10vh 0;
+}
+
+.add-post-container {
+    margin: 3vh 0 8vh 0;
+}
+
+.add-post-button {
+    height: 5em;
+}
+
 /* Post and modal */
 
 .post-index{
@@ -263,7 +309,7 @@ footer a:hover {
     width: 234px;
 }
 .button-loupe {
-    margin-top: 33px;
+    padding-right: 0;
 }
 .nav-icons .fas {
     font-size: 24px;
@@ -425,13 +471,97 @@ body {
 }
 
 
-@media screen and (max-width: 768px) {
+#sendLogin {
+    text-align: center;
+}
 
-    .animated-logo {
-        right: -85px;
+#sendLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.send-icon {
+    margin-left:7px;
+}
+
+.btn-add {
+    background-color: var(--button-inside-modal);
+}
+
+.btn-add-inside-modal {
+    background-color: var(--button-add-color);
+    width:100%;
+}
+
+.btn-login-modal {
+    background-color: var(--button-add-color);
+}
+
+.small_footer{
+    margin-top: 1em;
+
+}
+
+.btn-change-login {
+    background-color: #EEDC8A;
+}
+
+.modal-content {
+    background-color:transparent;
+}
+
+.modal-footer {
+    background-color: var(--body-color);
+}
+
+.post-footer {
+    display:flex;
+}
+.delete-button {
+    margin-left:200px;
+}
+.admin-gif {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+@media screen and (max-width: 576px) {
+    .large_footer {
+        display: none;
     }
 }
 
+@media screen and (max-width: 768px) {
+
+    .animated-logo {
+    /*   right: -85px; */
+    display: none;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    .animated-logo {
+        /*   right: -85px; */
+        display: none;
+    }
+}
+
+@media screen and (min-width: 577px) {
+    .small_footer{
+        display: none;
+    }
+}
+
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
 
 
 

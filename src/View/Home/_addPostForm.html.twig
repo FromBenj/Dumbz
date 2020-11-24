@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col text-center">
-            <button type="button" class="btn btn-primary h-100 w-50" data-toggle="modal" data-target="#newPost">
+            <button type="button" class="btn btn-add" data-toggle="modal" data-target="#newPost">
                 Créer une fiche
             </button>
         </div>
@@ -13,6 +13,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title">Créer une fiche</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -27,7 +28,6 @@
                     <div class="form-group mw-100">
                         <label for="newPostLanguage">Langage</label>
                         <select class="custom-select my-1 mr-sm-2" id="newPostLanguage" name="newPostLanguage">
-                            <option></option>
                             {% for language in languages %}
                                 <option value="{{ language.id }}">{{ language.name }}</option>
                             {% endfor %}
@@ -41,13 +41,9 @@
                     <a href="https://michelf.ca/projects/php-markdown/concepts/" target="_blank">Comment mettre en forme
                         mon post (liens, gras, liste,...)</a>
                     <div class="form-group my-4 mw-100">
-                        <label for="newPostSend"></label>
-                        <button type="submit" id="newPostSend" class="btn btn-primary">Poster</button>
+                        <button type="submit" class="btn btn-add-inside-modal">Poster</button>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary mw-100" data-dismiss="modal">Fermer</button>
             </div>
         </div>
     </div>
