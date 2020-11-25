@@ -77,6 +77,12 @@ body {
 .btn-post:hover {
     color: black;
 }
+.btn-post {
+    font-size: 31px;
+    border: 1px solid;
+    border-radius: 50px;
+    padding: 1px 15px 1px 15px;
+}
 
 /* Main page content */
 
@@ -99,6 +105,8 @@ body {
     border-bottom: solid 2px black;
     margin: 30px 0;
     width: 100%;
+    font-weight: bolder;
+    font-size: 2vh;
 }
 
 .result-title-button{
@@ -106,6 +114,9 @@ body {
     margin: 30px 0;
     width: 100%;
     border-bottom: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 
@@ -357,6 +368,8 @@ footer a:hover {
 
 .btn-comment {
     margin-bottom: 29px;
+    background-color: var(--secondary-color);
+
 }
 
 /* search bar */
@@ -401,6 +414,15 @@ input:focus {
 input:focus {
     outline: none;
 }
+.card-footer {
+    padding: 0.75rem 1rem;
+}
+
+.comment-section {
+
+}
+
+
 /* test bubble comment */
 .bubble{
 // layout
@@ -547,9 +569,21 @@ body {
     }
 }
 
+@media screen and (max-width: 1049px) {
+    .align-posts {
+        justify-content: center;
+    }
+}
+
 @media screen and (min-width: 577px) {
     .small_footer{
         display: none;
+    }
+}
+
+@media screen and (min-width: 1050px) {
+    .align-posts {
+        justify-content: space-between;
     }
 }
 
