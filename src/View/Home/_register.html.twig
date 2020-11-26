@@ -19,6 +19,7 @@
                 <input type="email" name="email" class="form-control"
                        id="emailRegistration" aria-describedby="emailHelp"
                        placeholder="Entre ton email">
+                <small class="text-danger"> {{ session.emailErrorAlreadyExists }} </small>
             </div>
             <div class="form-group">
                 <label for="passwordRegistration">Mot de passe</label>

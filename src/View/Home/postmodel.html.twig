@@ -5,7 +5,7 @@
             {% set fav_array = fav_array|merge( [fav.id] ) %}
         {% endfor %}
 
-        {% for one_post in tableToUse|slice(0,6) %}
+        {% for one_post in tableToUse|slice(0,6)%}
 
             {# for index tables #}
             {% if one_post.post_unique_id in fav_array %}

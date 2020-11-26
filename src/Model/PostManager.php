@@ -36,7 +36,7 @@ class PostManager extends AbstractManager
 
     public function selectPostsOrderedBy($orderedBy): array
     {
-        $posts = $this->pdo->query('SELECT *, post.id as post_unique_id, (post.nbOfLikes - post.nbOfDislikes) as popularity FROM ' . $this->table . ' LEFT JOIN language ON post.language_id = language.id ORDER BY ' . $orderedBy . ' DESC;')->fetchAll();
+        $posts = $this->pdo->query('SELECT post.title, post.creation_at, post.language_id, post.user_id, post.content, post.id as post_unique_id, (SUM(approval.up) - sum(approval.down)) as popularity, language.id, language.identifier, language.name, language.icon FROM post LEFT JOIN language ON post.language_id = language.id  LEFT JOIN approval ON approval.post_id = post.id GROUP BY post.id ORDER by ' . $orderedBy . ' DESC;')->fetchAll();
         return $this->cleanPosts($posts);
     }
 

@@ -3,6 +3,15 @@
 {% block content %}
     {% if search is empty %}
 
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 mt-5 search-no-result">
+            {% if search_without_result %}
+                Aucun résultat ne correspond à votre recherche, veuillez réessayez un autre mot clé.
+            {% endif %}
+        </div>
+    </div>
+</div>
 
 
 <div class="container-fluid">

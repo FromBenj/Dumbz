@@ -547,6 +547,11 @@ body {
     margin-right: auto;
     display: block;
 }
+
+
+.search-no-result {
+    text-align:center;
+}
 @media screen and (max-width: 576px) {
     .large_footer {
         display: none;
@@ -586,6 +591,7 @@ body {
         justify-content: space-between;
     }
 }
+
 
 
 // Medium devices (tablets, 768px and up)

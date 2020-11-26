@@ -60,7 +60,7 @@ class HomeController extends AbstractController
             $favorites = [];
         }
 
-        if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['comment'])) {
+        if ($_SERVER["REQUEST_METHOD"] === "POST" && !empty($_POST['comment'])) {
                     $newComment = new CommentManager();
                     $content = $_POST ['comment'];
                     $userid = $_SESSION['userid'];
@@ -105,6 +105,5 @@ class HomeController extends AbstractController
         $postManager = new PostManager();
         $postManager->deleteUserPost($id);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
-
     }
 }

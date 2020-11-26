@@ -36,6 +36,9 @@ class LanguageController extends AbstractController
                 $allComments = '';
                 $newComment = new CommentManager();
                 $allComments = $newComment->showComments();
+
+        $allPopularities = $allPostManager->popularityPerId();
+
         return $this->twig->render('Home/index.html.twig', [
             'languages' => $categories,
             'all_posts_by_date' => $allPostsOrderedByDate,
@@ -43,6 +46,7 @@ class LanguageController extends AbstractController
             'colors' => $colors,
              'all_comments' => $allComments,
              'favorite' => $favorites,
+            'all_popularities' => $allPopularities,
         ]);
     }
 }

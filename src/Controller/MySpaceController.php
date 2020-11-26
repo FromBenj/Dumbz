@@ -29,12 +29,17 @@ class MySpaceController extends AbstractController
             $allMyFavorites = new PostManager();
             $allMyFavorites = $allMyFavorites->selectAllMyFavorites($user);
         if (($_SERVER["REQUEST_METHOD"] === "POST")) {
-            $thePost = new PostManager();
-            $user = $theUser['id'];
-            $title = $_POST['newPostTitle'];
-            $content = $_POST['newPostContent'];
-            $language = $_POST['newPostLanguage'];
-            $thePost->createPost($user, $title, $content, $language);
+            if (isset($_POST['newPostTitle']) && isset($_POST['newPostContent']) && isset($_POST['newPostLanguage'])) {
+                $_SESSION['emptymessage'] = '';
+                $thePost = new PostManager();
+                $user = $theUser['id'];
+                $title = $_POST['newPostTitle'];
+                $content = $_POST['newPostContent'];
+                $language = $_POST['newPostLanguage'];
+                $thePost->createPost($user, $title, $content, $language);
+            }
+            $_SESSION['emptymessage'] = 'Remplissez toutes les données pour créer un nouveau message!';
+            header('Location: /MySpace/main/' . $_SESSION['userid']);
         }
         $_SESSION['userid'] = $theUser['id'];
         if (isset($_SESSION['userid'])) {
@@ -73,12 +78,19 @@ class MySpaceController extends AbstractController
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $_SESSION['nameErrorAlreadyExists'] ='';
+            $_SESSION['emailErrorAlreadyExists'] ='';
             $userManager = new UserManager();
             if ($newUserData = $userManager->selectOneByName($_POST['name'])) {
                 $_SESSION['nameErrorAlreadyExists'] = 'Ce nom est déjà utilisé, choisis en un autre';
                 $errorsQueryString = http_build_query($_SESSION);
                 header('Location: /#registration?' . $errorsQueryString);
-            } else {
+            } if ($newUserData = $userManager->selectOneByEmail($_POST['email'])) {
+                $_SESSION['emailErrorAlreadyExists'] = 'Cet e-mail est déjà utilisé, choisis en un autre';
+                $errorsQueryString = http_build_query($_SESSION);
+                header('Location: /#registration?' . $errorsQueryString);
+            }
+            else {
                 $newUserData = [];
                 $newUserData['name'] = trim($_POST['name']);
                 $newUserData['email'] = trim($_POST['email']);
@@ -162,5 +174,4 @@ class MySpaceController extends AbstractController
             ]);
         }
     }
-
 }
