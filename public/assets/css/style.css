@@ -185,7 +185,15 @@ footer a:hover {
     /*border-radius: 25px;*/
     border-radius: 15px;
 }
+.contact{
+    color: white;
+}
 
+.large_footer{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
 @keyframes logo {
     0% {
         background-image: var(--logo-image-1);
@@ -562,6 +570,9 @@ body {
     .animated-logo {
     /*   right: -85px; */
     display: none;
+    }
+    .header-icons {
+        padding-right: 5px;
     }
 }
 
