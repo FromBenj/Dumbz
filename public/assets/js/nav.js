@@ -69,7 +69,6 @@ for (let i = 0 ; i <like.length; i++) {
         .then(response => response.json())
         .then(data => console.log(data))
     })
-    console.log(like.length);
 }
 
 

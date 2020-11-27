@@ -17,15 +17,16 @@
                 <div class="col-6 result-title">
                     Mes favoris
                 </div>
-                <div class="col-1 result-title">
-                    <span class="font-weight-bold" id="plus-my-favoris">+</span>
-                </div>
             </div>
         </div>
         <div class="container-fluid">
-            <div class="row justify-content-sm-center">
+            <div class="row justify-content-center">
                 {% set tableToUse = favorites %}
                 {% include '/Home/postmodel.html.twig' %}
+            </div>
+            <div class="row justify-content-center collapse" id="all-post-by-pop">
+                {% set tableToUse = favorites %}
+                {% include '/Home/postmodel_pop_collapse.html.twig' %}
             </div>
         </div>
         <div class="container-fluid">
@@ -33,15 +34,16 @@
                 <div class="col-6 result-title">
                     Mes fiches
                 </div>
-                <div class="col-1 result-title">
-                    <span class="font-weight-bold" id="font-weight-bold plus-my-posts">+</span>
-                </div>
             </div>
         </div>
         <div class="container-fluid">
             <div class="row justify-content-sm-center">
                 {% set tableToUse = myposts %}
                 {% include '/Home/postmodel.html.twig' %}
+            </div>
+            <div class="row justify-content-center collapse" id="all-post-by-date">
+                {% set tableToUse = myposts %}
+                {% include '/Home/postmodel_recent_collapse.html.twig' %}
             </div>
         </div>
     {% else %}

@@ -8,44 +8,47 @@
         <div class="col-12 mt-5 search-no-result">
             {% if search_without_result %}
                 Aucun résultat ne correspond à votre recherche, veuillez réessayez un autre mot clé.
-            {% endif %}
+                    {% endif %}
         </div>
     </div>
 </div>
-
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-6 result-title">
             Les plus populaires
-
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            {% set tableToUse = all_posts_by_pop %}
-            {% include '/Home/postmodel.html.twig' %}
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                {% set tableToUse = all_posts_by_pop %}
+                {% include '/Home/postmodel.html.twig' %}
+            </div>
+            <div class="result-title-button">
+                <button class="btn btn-post" type="button" data-toggle="collapse" data-target="#all-post-by-pop"
+                        aria-expanded="false" aria-controls="collapseExample"><span class="font-weight-bold"
+                                                                                    id="plus-most-popular">+</span>
+                </button>
+            </div>
+            <div class="row justify-content-center collapse" id="all-post-by-pop">
+                {% set tableToUse = all_posts_by_pop %}
+                {% include '/Home/postmodel_pop_collapse.html.twig' %}
+            </div>
         </div>
-        <div class="result-title-button">
-            <button class="btn btn-post" type="button" data-toggle="collapse" data-target="#all-post-by-pop" aria-expanded="false" aria-controls="collapseExample"><span class="font-weight-bold" id="plus-most-popular">+</span></button>
-        </div>
-        <div class="row justify-content-center collapse" id="all-post-by-pop">
-            {% set tableToUse = all_posts_by_pop %}
-            {% include '/Home/postmodel_pop_collapse.html.twig' %}
-        </div>
-    </div>
-    <div class="container-fluid">
+        <div class="container-fluid">
         <div class="row">
             <div class="col-6 result-title">
                 Les plus récents
             </div>
-            <div class="container-fluid" >
+            <div class="container-fluid">
                 <div class="row justify-content-center">
                     {% set tableToUse = all_posts_by_date %}
                     {% include '/Home/postmodel.html.twig' %}
                 </div>
                 <div class="result-title-button">
-                    <button class="btn btn-post" type="button" data-toggle="collapse" data-target="#all-post-by-date" aria-expanded="false" aria-controls="collapseExample"><span class="font-weight-bold" id="plus-most-popular">+</span></button>
+                    <button class="btn btn-post" type="button" data-toggle="collapse" data-target="#all-post-by-date"
+                            aria-expanded="false" aria-controls="collapseExample"><span class="font-weight-bold" id="plus-most-popular">+</span>
+                    </button>
                 </div>
                 <div class="row justify-content-center collapse" id="all-post-by-date">
                     {% set tableToUse = all_posts_by_date %}
@@ -53,16 +56,13 @@
                 </div>
             </div>
         </div>
-        {% endif %}
+    {% endif %}
 
     {% if search is not empty %}
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6 result-title">
                     Résultat de ta recherche : "{{ keyword }}"
-                </div>
-                <div class="col-sm-1 result-title">
-                    <span class="font-weight-bold" id="plus-most-popular">+</span>
                 </div>
             </div>
             <div class="container-fluid">

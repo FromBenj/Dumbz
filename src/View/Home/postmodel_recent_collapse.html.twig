@@ -1,5 +1,5 @@
 {% block postContent %}
-    <div class="row d-flex justify-content-between m-3">
+    <div class="row d-flex align-posts m-3">
         {% set fav_array = [] %}
         {% for fav in favorite %}
             {% set fav_array = fav_array|merge( [fav.id] ) %}
@@ -20,7 +20,7 @@
             {# for myspace table #}
             {% set random = random(colors) %}
             <div>
-                <div class="card m-1 post-index" style="width: 18rem; background-color: {{ random }}" data-toggle="modal" data-target="#exampleModal{{ one_post.post_unique_id }}">
+                <div class="card m-1 post-index" style="width: 18rem; background-color: {{ random }}" data-toggle="modal" data-target="#exampleModal2{{ one_post.post_unique_id }}">
                     <div class="card-body">
                         <div class="container card-header" style="background-color: {{ random }}">
                             <div class="row d-flex ">{{ one_post.title }}
@@ -33,7 +33,7 @@
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="icons-post icon-language"><i class="{{ one_post.icon }} fa-2x"></i></div>
                                 {% set postid = one_post.post_unique_id %}
-                                <div class="popularity badge badge-warning">{{ all_popularities [postid] }}</div>
+                                <div class="popularity badge badge-warning">{{ all_popularities[postid] }}</div>
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="exampleModal{{ one_post.post_unique_id }}" tabindex="-1" role="dialog"
+            <div class="modal fade" id="exampleModal2{{ one_post.post_unique_id }}" tabindex="-1" role="dialog"
                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content card">
