@@ -1,12 +1,12 @@
 # Dumbz - Cheatsheets
 
-This school project was done by four developers and me in the Wild Code School (Bordeaux). We use the simple Simple MVC structure: https://github.com/WildCodeSchool/simple-mvc.
+This school project was done by four developers and me in the Wild Code School (Bordeaux). We use the Simple MVC structure: https://github.com/WildCodeSchool/simple-mvc.
 
 ## Description
 
-A web application providing cheatsheets to web developers, with different categories, identification process, storage in a database and so on.
+A web application providing cheatsheets to web developers, with different categories, an identification process, storage in a database and so on.
 It was very interesting working with agile methods and combining our efforts to make something very neat in only a couple of weeks.
-We have done this app after only 2 months of courses.
+We have done this app with only 2 months of courses.
 
 ## Developers
 
